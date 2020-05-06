@@ -288,8 +288,7 @@ to setup ;;---------------------------------------CREATE LANDSCAPE AND TURTLES--
   [set file word file x]
  ;---------------------------------------------------CREATE ENVIRONMENT----------------------------------------------------
   resize-world -512 512 -512 512 ;Definir a paisagem como 1024x1024.
-  ;set resolution 10 ;ou seja cada pixel é equivalente à 10m
-  set resolution 30 ;ou seja cada pixel é equivalente à 30m
+  set resolution 10 ;ou seja cada pixel é equivalente à 10m
   set-patch-size 0.2
 
   ;--------------------------------------------Shuffle landscape from directory
@@ -445,7 +444,6 @@ to go ;;Start simulation
 
       ;register last step
       file-open word file "_data.txt"
-      ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life xcor ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
       file-print (list who time1 cover ID life xcor ycor oriented l turning_angle ang source end_frag distance_total count_mort)
       file-close
 
@@ -460,11 +458,10 @@ to go ;;Start simulation
 to move ;Se o indivíduo decidir sair, então vai dispersar pela matriz.
   ;pen-down ;função para criar linhas das trajetórias na paisagem durante a simulação
   ;set color yellow;
-
   ;;;we don't define ID because turtle is within matrix, and it is important to keep the last ID to avoid turtle to come back.
 
   ;Define next step
-  ifelse not any? patches in-radius PR with [cover != 0 and PATCHES_ID != [ID] of myself and SS_ID != [ID] of myself and TREES_ID != [ID] of myself and PATCHES_ID != [prev_ID] of myself and SS_ID != [prev_ID] of myself and TREES_ID != [prev_ID] of myself] ;se tem nenhuma floresta com ID diferente do ID anterior
+  ifelse not any? patches in-radius PR with [cover != 0 and PATCHES_ID != [ID] of myself and SS_ID != [ID] of myself and TREES_ID != [ID] of myself and PATCHES_ID != [prev_ID] of myself and SS_ID != [prev_ID] of myself and TREES_ID != [prev_ID] of myself] ;if there is any forest with a different ID of the Previous ID
   [
     ;movimento não orientado
     set oriented 0
@@ -485,12 +482,10 @@ to move ;Se o indivíduo decidir sair, então vai dispersar pela matriz.
 
     ;-----Testar mortalidade proporcional ao step lenght (l)
     mortality
-
     set time1 time1 + 1
 
     ;register values with all data update but before turtle move
     file-open word file "_data.txt"
-    ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
     file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
     file-close
 
@@ -503,16 +498,15 @@ to move ;Se o indivíduo decidir sair, então vai dispersar pela matriz.
 
     if ([cover] of goal_pixel = 1) or ([cover] of goal_pixel = 2) ;if that goal is patch or ss
     [
-      ;movimento orientado
+      ;Oriented Move
       set oriented 1
-      face goal_pixel  ;pcolor = green]; and patchID != source]
-      ;l step lenght
+      face goal_pixel  
       set RAN random-float 1
       set l ((Xmax-o ^ (expo-o + 1) - Xmin-o ^ (expo-o + 1)) * RAN + Xmin-o ^ (expo-o + 1)) ^ (1 / (expo-o + 1))
       ;turning angle and absolute angle
       set turning_angle random-normal mean-ang-o sd-ang-o
-      set ang (heading + turning_angle) ; angulo de virada.
-      ;set color black
+      set ang (heading + turning_angle) ; Turning Angle
+     
 
       ;-----Calcular as coordenadas----goal_pixel with [cover = 1 or cover = 2]
       set new-xcor (xcor + (l / resolution * sin(ang))) ;definir a nova coordenada x
@@ -524,12 +518,10 @@ to move ;Se o indivíduo decidir sair, então vai dispersar pela matriz.
 
       ;-----Testar mortalidade proporcional ao step lenght (l)
       mortality
-
       set time1 time1 + 1
 
       ;register values with all data update but before turtle move
       file-open word file "_data.txt"
-      ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
       file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
       file-close
 
@@ -562,25 +554,22 @@ to move ;Se o indivíduo decidir sair, então vai dispersar pela matriz.
 
       ;-----Testar mortalidade proporcional ao step lenght (l)
       mortality
-
       set time1 time1 + 1
 
       ;register values with all data update but before turtle move
       file-open word file "_data.txt"
-      ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
       file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
       file-close
 
       ;move
-      setxy new-xcor new-ycor ; define as novas coordenadas
+      setxy new-xcor new-ycor ; define new coordinates
     ]
-  ]; bracket de fechamento do if
+  ]; bracket closing if
 end
 
 to in_patch
   set prev_ID ID
   set ID [PATCHES_ID] of patch-here
-  ;set distance_mort 0 DUVIDA?
 
   ;define next step
   ifelse [PATCHES_ID] of patch-here = [PATCHES_ID] of initial_frag and distance_total < 1000 ;If the individual arrive at the same source fragment, he might stop if he had walked already more than 10000, or he should go to matrix again
@@ -603,14 +592,12 @@ to in_patch
     set turning_angle (new_heading - actual_heading)
     set ang new_heading
 
-    ;-----Testar mortalidade proporcional ao step lenght (l) - testar pq a turtle está na matriz
+    ;-----Testar mortalidade proporcional ao step lenght (l)
     mortality
-
     set time1 time1 + 1
 
     ;register values with all data update but before turtle move
     file-open word file "_data.txt"
-    ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
     file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
     file-close
 
@@ -629,14 +616,12 @@ to in_patch
 
     ;register values with all data update but before turtle move
     file-open word file "_data.txt"
-    ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
     file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
     file-close
   ]
 end
 
 to in_ss
-  ;set color blue
   set prev_ID ID
   set ID [SS_ID] of patch-here
   set distance_mort 0
@@ -666,7 +651,6 @@ to in_ss
 
     ;register values with all data update but before turtle move
     file-open word file "_data.txt"
-    ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
     file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
     file-close
 
@@ -675,7 +659,7 @@ to in_ss
   ]
   [let near_patch min-one-of border_ss [distance myself]; Get of SS and go to matriz
 
-    ;-----Calcula novas coordenadas
+    ;-----Calculate new coordinates
     set new-xcor [pxcor] of near_patch
     set new-ycor [pycor] of near_patch
 
@@ -693,12 +677,10 @@ to in_ss
     set ang new_heading
 
     mortality
-
     set time1 time1 + 1
 
     ;register values with all data update but before turtle move
     file-open word file "_data.txt"
-    ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
     file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
     file-close
 
@@ -709,12 +691,10 @@ to in_ss
 end
 
 to in_trees
-  ;set color red
   set prev_ID ID
   set ID [TREES_ID] of patch-here
   set distance_mort 0
 
-  ;;ERRO - TURTLE CHEGAVA NA ÁRVORE E TODOS OS NEIGHBORS TAMBÉM TINHA COVER = 3, NÃO ENTENDI PORQUE. MAS FUNCIONOU DESSA MANEIRA, CASO TENHA ALGUM VIZINHO COM COVER IGUAL, ENTÃO SE MOVE APENAS PRO VIZINHO.
   ;Define new step
   ifelse count neighbors with [cover = 3] >= 5
   [let near_patch one-of neighbors with [cover = 3] ;move to neighbor
@@ -740,7 +720,6 @@ to in_trees
 
     ;register values with all data update but before turtle move
     file-open word file "_data.txt"
-    ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
     file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
     file-close
 
@@ -772,7 +751,6 @@ to in_trees
 
     ;register values with all data update but before turtle move
     file-open word file "_data.txt"
-    ;file-print (list landscape specie perceptual_range SS TREES who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total distance_mort count_mort)
     file-print (list who time1 cover ID life new-xcor new-ycor oriented l turning_angle ang source end_frag distance_total count_mort)
     file-close
 
