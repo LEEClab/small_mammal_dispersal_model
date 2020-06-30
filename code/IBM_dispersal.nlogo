@@ -145,8 +145,8 @@ end
 
 to import_ID_PATCHES ;import ID of habitat patches
 ;-----------------------LANDSCAPE ID_PATCHES
-  set directory_ID_PATCHES word directory_base "/exported_ascii_MS_HABMAT_PATCHES_ONLY_PID/" ;define directory
-  set direct_list_ID_PATCHES sort pathdir:list directory_ID_PATCHES ;list of files in directory in ascending order
+  set directory_ID_PATCHES word directory_base "exported_ascii_MS_HABMAT_PATCHES_ONLY_PID/" ;define directory
+  set direct_list_ID_PATCHES sort pathdir:list directory_ID_PATCHES;list of files in directory in ascending order
   set landscape_ID_PATCHES item num_lands direct_list_ID_PATCHES ;get one of the landscape from the list and define as landscape_ID
   set landscape_ID_PATCHES word directory_ID_PATCHES landscape_ID_PATCHES
 end
@@ -250,7 +250,7 @@ end
 to setup ;;---------------------------------------CREATE LANDSCAPE AND TURTLES------------------------------------------------
   clear-all
   reset-ticks
-  set-current-directory  "/home/erika/Documentos/RESULTS_TEST" ;"/home/marcus/Documentos/erika/CP_DA_sim/Results_CP_DA_sim" ; DEFINE DIRECTORY TO SAVE OUTPUT DATA
+  set-current-directory  "/home/erika/Documentos" ;"/home/marcus/Documentos/erika/CP_DA_sim/Results_CP_DA_sim" ; DEFINE DIRECTORY TO SAVE OUTPUT DATA
   ;Set file and file name
   set file (word specie "_" perceptual_range "_" num_lands)
   if TREES = true and SS = false
@@ -696,7 +696,7 @@ to in_trees
   set distance_mort 0
 
   ;Define new step
-  ifelse count neighbors with [cover = 3] >= 5
+  ifelse count neighbors with [cover = 3] >= 5 ;should have at least 3 pixels of matrix as neighbors, we consider that the individual reaches the borders when at least three neighbors pixels are matrix
   [let near_patch one-of neighbors with [cover = 3] ;move to neighbor
 
     ;-----Calcuate new coordinates
@@ -777,11 +777,11 @@ end
 GRAPHICS-WINDOW
 380
 10
-1405
-1044
+3944
+3575
 -1
 -1
-0.2
+0.7
 1
 10
 1
@@ -1016,7 +1016,7 @@ INPUTBOX
 80
 70
 num_lands
-2.0
+0.0
 1
 0
 Number
