@@ -4,6 +4,8 @@ Authors: Érika Garcez da Rocha, Edgardo Brigatti, Bernardo Brandão Niebuhr, Mi
 
 This is a repository for sharing an individual-based model developed for simulating the dispersal patterns of small mammals with specific perceptual range and movement parameters across heterogeneous landscapes. This model was developed in The NetLogo environment. 
 
+![Model interface](https://github.com/LEEClab/small_mammal_dispersal_model/blob/master/Model_figure.jpg)
+
 # Usage
 
 This repository is organized as it follows.
