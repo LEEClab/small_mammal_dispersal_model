@@ -1079,22 +1079,32 @@ The main goal of this model is to simulate the dispersal process of small mammal
 
 ## HOW IT WORKS
 
-This model is detailed explained on the ODD protocol available at Github page. Please check this before use the code. 
+This model is detailed explained on the ODD protocol available as a supplementary material in the GitHub Page. Please check this before use the code. 
 
 ## HOW TO USE IT
 
 Define within the code the directory to import landscape files and directory to save output and fill informations in the interface tab, as follows: 
-	1. Landscape number
-	2. Specie name or code
-	3. Number of individuals
-	4. Perceptual range value
-	5. Mortality rate
-	6. Parameters for oriented and non-oriented movements (to detailed information see Github page)
+	1. Landscape number (Landscape number is refering about the landscape file, which are in ascending order. For example, landscape files within the folder are ordered by 1 to 100. However, NetLogo starts counting by 0, then the first landscape file will be the Landscape number 0). 
+	2. Specie name or code (You should fill this with the information about the specie that you need to register)
+	3. Number of individuals (The amount of individuals to run per simulation)
+	4. Perceptual range value (in meters)
+	5. Mortality rate (The probability of mortality faced by individuals)
+	6. Parameters for oriented and non-oriented movements (to detailed information see below the Movement Parameters topic)
 	7. Define the scenario by add stepping stones (SS) or/and scattered trees (TREES)
+
+## MOVEMENT PARAMETERS
+
+The trajectories in this model is defined as Lévy flights, based on a Pareto truncated distribution for step lengths associated with a Gaussian distribution for the angles, which describes correlations in the direction of the movement. Therefore, in our algorithm step-lengths were randomly chosen from a Pareto truncated distribution, and turning angles (the change in direction relative to the previous step) from a Gaussian distribution. 
+The parameters which control this algorithm were:
+	The minimum step length (Xmin)
+	The maximum step length (Xmin)
+	The μ exponent for the Pareto truncated distribution (Expo)
+	The mean and standard deviations for the Gaussian distribution (Mean and Sd). 
+All these parameters are defined by an oriented and non-oriented movement. 
 
 ## CREDITS AND REFERENCES
 
-To detailed information see https://github.com/erikagarcez/small_mammal_dispersal_model
+To detailed information see https://github.com/LEEClab/small_mammal_dispersal_model
 @#$#@#$#@
 default
 true
