@@ -108,7 +108,7 @@ turtles-own[
 ;submodels to import landscape data
 
 to base ;DEFINE DIRECTORY TO IMPORT LANDSCAPE RASTERS
-  set directory_base "/home/erika/Dropbox/Mestrado/100land_10res/landscape_100land_10res/" ;"/home/marcus/Documentos/erika/100land_10res/landscape_100land_10res/"
+  set directory_base "DEFINE DIRECTORY TO IMPORT LANDSCAPE FILES (add / in the end of directory link)"
 end
 
 to import_TREES_SS ;import landscape with all elements (patches, ss and trees)
@@ -250,7 +250,7 @@ end
 to setup ;;---------------------------------------CREATE LANDSCAPE AND TURTLES------------------------------------------------
   clear-all
   reset-ticks
-  set-current-directory  "/home/erika/Documentos" ;"/home/marcus/Documentos/erika/CP_DA_sim/Results_CP_DA_sim" ; DEFINE DIRECTORY TO SAVE OUTPUT DATA
+  set-current-directory  "DEFINE DIRECTORY TO SAVE OUTPUT DATA"
   ;Set file and file name
   set file (word specie "_" perceptual_range "_" num_lands)
   if TREES = true and SS = false
@@ -777,8 +777,8 @@ end
 GRAPHICS-WINDOW
 380
 10
-3944
-3575
+1405
+1044
 -1
 -1
 0.7
@@ -1075,39 +1075,26 @@ PENS
 @#$#@#$#@
 ## WHAT IS IT?
 
-(a general understanding of what the model is trying to show or explain)
+The main goal of this model is to simulate the dispersal process of small mammals with specific perceptual range and movement parameters across heterogeneous landscapes. 
 
 ## HOW IT WORKS
 
-(what rules the agents use to create the overall behavior of the model)
+This model is detailed explained on the ODD protocol available at Github page. Please check this before use the code. 
 
 ## HOW TO USE IT
 
-(how to use the model, including a description of each of the items in the Interface tab)
-
-## THINGS TO NOTICE
-
-(suggested things for the user to notice while running the model)
-
-## THINGS TO TRY
-
-(suggested things for the user to try to do (move sliders, switches, etc.) with the model)
-
-## EXTENDING THE MODEL
-
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
-
-## NETLOGO FEATURES
-
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
-
-## RELATED MODELS
-
-(models in the NetLogo Models Library and elsewhere which are of related interest)
+Define within the code the directory to import landscape files and directory to save output and fill informations in the interface tab, as follows: 
+	1. Landscape number
+	2. Specie name or code
+	3. Number of individuals
+	4. Perceptual range value
+	5. Mortality rate
+	6. Parameters for oriented and non-oriented movements (to detailed information see Github page)
+	7. Define the scenario by add stepping stones (SS) or/and scattered trees (TREES)
 
 ## CREDITS AND REFERENCES
 
-(a reference to the model's URL on the web if it has one, as well as any other necessary credits, citations, and links)
+To detailed information see https://github.com/erikagarcez/small_mammal_dispersal_model
 @#$#@#$#@
 default
 true
