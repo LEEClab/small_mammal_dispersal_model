@@ -1,1 +1,1 @@
-Organização das pastas 
+# Landscape folders
