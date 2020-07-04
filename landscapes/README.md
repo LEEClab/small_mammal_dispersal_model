@@ -15,3 +15,7 @@ This folder contains all the simulated landscape files used on this model. These
     - ID of Habitat patches - Exported_ascii_MS_HABMAT_PATCHES_ONLY_PID
     - ID of Stepping stones - Exported_ascii_MS_HABMAT_SS_5HA_PID 
     - ID of Scattered trees - Exported_ascii_MS_HABMAT_2PIX_TREES_PID
+    
+## Using your own landscapes
+
+Here we should describe how the landscape were coded, which values each landscape elements has etc, to guarantee that other people can use it.
