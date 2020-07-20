@@ -18,4 +18,13 @@ This folder contains all the simulated landscape files used on this model. These
     
 ## Using your own landscapes
 
-Here we should describe how the landscape were coded, which values each landscape elements has etc, to guarantee that other people can use it.
+In the code, each landscape elements has a unique value for the state variable called cover, which qualify them. The values is defined as following:
+    - Matrix - cover = 0
+    - Habitat patches - cover = 1
+    - Stepping stones - cover = 2
+    - Scattered trees - cover = 3
+
+Besides the cover variable, each landscape element has an ID value, which refers to a identification of it element. 
+
+In our model, we considered a cell grid of 1024x1024 and each cell size representing 10m² based on the resolution of the landscapes used. Both of this configuration may be edited in the code depending on the landscapes imported. 
+
