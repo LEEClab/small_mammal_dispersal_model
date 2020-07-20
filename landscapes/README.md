@@ -19,10 +19,10 @@ This folder contains all the simulated landscape files used on this model. These
 ## Using your own landscapes
 
 In the code, each landscape elements has a unique value for the state variable called cover, which qualify them. The values is defined as following:
-    - Matrix - cover = 0
-    - Habitat patches - cover = 1
-    - Stepping stones - cover = 2
-    - Scattered trees - cover = 3
+- Matrix - cover = 0
+- Habitat patches - cover = 1
+- Stepping stones - cover = 2
+- Scattered trees - cover = 3
 
 Besides the cover variable, each landscape element has an ID value, which refers to a identification of it element. 
 
