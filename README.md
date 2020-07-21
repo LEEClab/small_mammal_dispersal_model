@@ -1,6 +1,8 @@
-# Individual-based model for modeling small mammal dispersal
+# Individual-based model for modeling small mammal dispersal  
+[![DOI](https://zenodo.org/badge/112477194.svg)](https://zenodo.org/badge/latestdoi/112477194)
 
-This is a repository for sharing an individual-based model developed for simulating the dispersal patterns of small mammals with specific perceptual range and movement parameters across heterogeneous landscapes. This model was developed in the NetLogo environment. 
+This is a repository for sharing an individual-based model developed for simulating the dispersal patterns of small mammals with specific perceptual range and movement parameters across heterogeneous landscapes. This model was developed in the NetLogo environment.
+
 
 ![Model interface](https://github.com/LEEClab/small_mammal_dispersal_model/blob/master/Model_figure.jpg)
 
