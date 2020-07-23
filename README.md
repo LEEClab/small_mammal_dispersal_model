@@ -1,5 +1,4 @@
 # Individual-based model for modeling small mammal dispersal  
-[![DOI](https://zenodo.org/badge/112477194.svg)](https://zenodo.org/badge/latestdoi/112477194)
 
 This is a repository for sharing an individual-based model developed for simulating the dispersal patterns of small mammals with specific perceptual range and movement parameters across heterogeneous landscapes. This model was developed in the NetLogo environment.
 
@@ -34,9 +33,7 @@ Then, you should be able to run the model.
 
 # Citation
 
-If you are going to use and cite this model in your study or report, please refer to:
-
-Rocha, EG; Brigatti, E; Niebuhr, BB; Ribeiro, MC; Vieira, MV. Dispersal movement through disturbed landscapes: the role of stepping stones and perceptual range. Under review. 
+If you are going to use and cite this model in your study or report, please cite this repository:  [![DOI](https://zenodo.org/badge/112477194.svg)](https://zenodo.org/badge/latestdoi/112477194)
 
 If you have trouble running the model or any suggestion, please open an [issue](https://github.com/LEEClab/small_mammal_dispersal_model/issues) or send an email to erika.garcez.rocha@gmail.com. 
 
