@@ -35,5 +35,10 @@ Then, you should be able to run the model.
 
 If you are going to use and cite this model in your study or report, please cite this repository:  [![DOI](https://zenodo.org/badge/112477194.svg)](https://zenodo.org/badge/latestdoi/112477194)
 
+# Publications 
+Check out our paper: Rocha, É.G., Brigatti, E., Niebuhr, B.B. et al. Dispersal movement through fragmented landscapes: the role of stepping stones and perceptual range. Landscape Ecol 36, 3249–3267 (2021). https://doi.org/10.1007/s10980-021-01310-x
+
+# Contact 
+
 If you have trouble running the model or any suggestion, please open an [issue](https://github.com/LEEClab/small_mammal_dispersal_model/issues) or send an email to erika.garcez.rocha@gmail.com. 
 
